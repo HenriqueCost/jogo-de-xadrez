@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import xadrez.Cor;
+import xadrez.PartidaDeXadrez;
 import xadrez.PecaDeXadrez;
 import xadrez.PosicaoNoTabuleiro;
 
@@ -44,6 +45,13 @@ public class InterfaceDeUsuario {
 			throw new InputMismatchException("Erro lendo PosicaoNoTabuleiro. Valores sao de a1 ate h8.");
 		}
 	}
+	
+	public static void imprimirPartida(PartidaDeXadrez partidaDeXadrez) {
+		imprimirTabuleiro(partidaDeXadrez.getPecas());
+		System.out.println();
+		System.out.println("Turno: " + partidaDeXadrez.getTurno());
+		System.out.println("Esperando movimento do jogador de cor: " + partidaDeXadrez.getJogadorAtual());
+	}
 
 	public static void imprimirTabuleiro(PecaDeXadrez[][] pecas) {
 		for (int i = 0; i < pecas.length; i ++) {
@@ -69,7 +77,7 @@ public class InterfaceDeUsuario {
 	
 	private static void imprimirPeca(PecaDeXadrez peca, boolean planoDeFundo) {
 		if (planoDeFundo) {
-			System.out.println(ANSI_BLUE_BACKGROUND);
+			System.out.print(ANSI_BLUE_BACKGROUND);
 		}
 		if (peca == null) {
 			System.out.print("-" + ANSI_RESET);
