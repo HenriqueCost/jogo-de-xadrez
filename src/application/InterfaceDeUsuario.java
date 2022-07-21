@@ -56,9 +56,15 @@ public class InterfaceDeUsuario {
 		imprimirPecasCapturadas(capturadas);
 		System.out.println();
 		System.out.println("Turno: " + partidaDeXadrez.getTurno());
-		System.out.println("Esperando movimento do jogador de cor: " + partidaDeXadrez.getJogadorAtual());
-		if(partidaDeXadrez.getCheck()) {
-			System.out.println("CHECK!");
+		if(!partidaDeXadrez.getCheckMate()) {
+			System.out.println("Esperando movimento do jogador de cor: " + partidaDeXadrez.getJogadorAtual());
+			if(partidaDeXadrez.getCheck()) {
+				System.out.println("CHECK!");
+			}
+		}
+		else {
+			System.out.println("CHECKMATE!");
+			System.out.println("Vencedor eh o jogador de cor: " + partidaDeXadrez.getJogadorAtual());
 		}
 	}
 
