@@ -5,15 +5,15 @@ import jogoDeTabuleiro.Tabuleiro;
 import xadrez.Cor;
 import xadrez.PecaDeXadrez;
 
-public class Torre extends PecaDeXadrez {
+public class Bispo extends PecaDeXadrez {
 
-	public Torre(Tabuleiro tabuleiro, Cor cor) {
+	public Bispo(Tabuleiro tabuleiro, Cor cor) {
 		super(tabuleiro, cor);
 	}
 
 	@Override
 	public String toString() {
-		return "T";
+		return "B";
 	}
 	
 	@Override
@@ -22,41 +22,41 @@ public class Torre extends PecaDeXadrez {
 		
 		Posicao p = new Posicao(0, 0);
 		
-		//acima da torre
-		p.setValores(posicao.getLinha() - 1, posicao.getColuna());
+		//a noroeste do bispo
+		p.setValores(posicao.getLinha() - 1, posicao.getColuna() - 1);
 		while (getTabuleiro().posicaoExiste(p) && !getTabuleiro().haUmaPeca(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
-			p.setLinha(p.getLinha() - 1);
+			p.setValores(p.getLinha() - 1, p.getColuna() - 1);
 		}
 		if (getTabuleiro().posicaoExiste(p) && haAlgumaPecaDoOponente(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
 		
-		//a esquerda da torre
-		p.setValores(posicao.getLinha(), posicao.getColuna() - 1);
+		//a nordeste do bispo
+		p.setValores(posicao.getLinha() - 1, posicao.getColuna() + 1);
 		while (getTabuleiro().posicaoExiste(p) && !getTabuleiro().haUmaPeca(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
-			p.setColuna(p.getColuna() - 1);
+			p.setValores(p.getLinha() - 1, p.getColuna() + 1);;
 		}
 		if (getTabuleiro().posicaoExiste(p) && haAlgumaPecaDoOponente(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
 		
-		//a direita da torre
-		p.setValores(posicao.getLinha(), posicao.getColuna() + 1);
+		//a sudeste do bispo
+		p.setValores(posicao.getLinha() + 1, posicao.getColuna() + 1);
 		while (getTabuleiro().posicaoExiste(p) && !getTabuleiro().haUmaPeca(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
-			p.setColuna(p.getColuna() + 1);
+			p.setValores(p.getLinha() + 1, p.getColuna() + 1);;
 		}
 		if (getTabuleiro().posicaoExiste(p) && haAlgumaPecaDoOponente(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
 		}
 		
-		//abaixo da torre
-		p.setValores(posicao.getLinha() + 1, posicao.getColuna());
+		//a sudoeste do bispo
+		p.setValores(posicao.getLinha() + 1, posicao.getColuna() - 1);
 		while (getTabuleiro().posicaoExiste(p) && !getTabuleiro().haUmaPeca(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
-			p.setLinha(p.getLinha() + 1);
+			p.setValores(p.getLinha() + 1, p.getColuna() - 1);;
 		}
 		if (getTabuleiro().posicaoExiste(p) && haAlgumaPecaDoOponente(p)) {
 			mat[p.getLinha()][p.getColuna()] = true;
