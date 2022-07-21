@@ -23,6 +23,9 @@ public class Program {
 				System.out.print("Origem: ");
 				PosicaoNoTabuleiro origem = InterfaceDeUsuario.lerPosicaoNoTabuleiro(sc);
 			
+				boolean[][] movimentosPossiveis = partidaDeXadrez.movimentoPossiveis(origem);
+				InterfaceDeUsuario.limparTela();
+				InterfaceDeUsuario.imprimirTabuleiro(partidaDeXadrez.getPecas(), movimentosPossiveis);
 				System.out.println();
 				System.out.print("Destino: ");
 				PosicaoNoTabuleiro destino = InterfaceDeUsuario.lerPosicaoNoTabuleiro(sc);
