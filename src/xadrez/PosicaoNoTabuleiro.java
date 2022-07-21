@@ -28,7 +28,7 @@ public class PosicaoNoTabuleiro {
 	}
 	
 	protected static PosicaoNoTabuleiro dePosicao(Posicao posicao) {
-		return new PosicaoNoTabuleiro((char)('a' - posicao.getColuna()), 8 - posicao.getLinha());
+		return new PosicaoNoTabuleiro((char)('a' + posicao.getColuna()), 8 - posicao.getLinha());
 	}
 	
 	@Override
