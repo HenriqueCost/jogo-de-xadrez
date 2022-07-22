@@ -41,7 +41,11 @@ public class Program {
 				
 				if(partidaDeXadrez.getPromovido() != null) {
 					System.out.print("Selecione a peca na qual gostaria de ser promovido (B/C/T/Q): ");
-					String letra = sc.nextLine();
+					String letra = sc.nextLine().toUpperCase();
+					while (!letra.equals("B") && !letra.equals("C") && !letra.equals("T") && !letra.equals("Q")) {
+						System.out.print("Valor invalido! Selecione uma peca valida para ser promovido (B/C/T/Q): ");
+						letra = sc.nextLine().toUpperCase();
+					}
 					partidaDeXadrez.substituirPecaPromovida(letra);
 				}
 			}
